@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: listadeafazeres
+spec:
+  selector:
+    matchLabels:
+      app: listadeafazeres
+  template:
+    metadata:
+      labels:
+        app: listadeafazeres
+    spec:
+      containers:
+      - name: listadeafazeres
+        image: viniciuscaol/listadeafazeres:v{{TAG}}
+        ports:
+        - containerPort: 80
