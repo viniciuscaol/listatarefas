@@ -1,34 +1,47 @@
-*{
+:root {
+    --primary-color: #153677;
+    --secondary-color: #4e085f;
+    --background-color: #fff;
+    --button-color: orangered;
+    --hover-color: #4b0e74;
+    --text-color: white;
+    --text-color-dark: #555;
+    --transition-time: 0.3s;
+}
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+body {
+    font-family: Arial, sans-serif;
+    background: var(--background-color);
+    color: var(--text-color);
+}
+
 .container {
     width: 100%;
     min-height: 95vh;
-    background: linear-gradient(135deg,#153677, #4e085f);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     padding: 10px;
 }
 
 .app {
     width: 100%;
     max-width: 540px;
-    background: #fff;
+    background: var(--background-color);
     margin: 100px auto 20px;
     padding: 40px 30px 70px;
     border-radius: 10px;
 }
 
-
-
 .app h2 {
-    color: #153677;
+    color: var(--primary-color);
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    /* font-size: 35px;
-    font-weight: 600; */
 }
 
 .app h2 img {
@@ -46,7 +59,7 @@
     margin-bottom: 25px;
 }
 
-input{
+input {
     flex: 1;
     border: none;
     outline: none;
@@ -59,10 +72,16 @@ button {
     border: none;
     outline: none;
     padding: 16px 50px;
-    background: orangered;
+    background: var(--button-color);
     font-size: 16px;
     border-radius: 40px;
     cursor: pointer;
+    transition: background-color var(--transition-time);
+}
+
+button:hover {
+    background-color: #153677;
+    color: #fff;
 }
 
 ul li {
@@ -72,6 +91,7 @@ ul li {
     user-select: none;
     cursor: pointer;
     position: relative;
+    color: black;
 }
 
 ul li::before {
@@ -87,7 +107,7 @@ ul li::before {
 }
 
 ul li.marcada {
-    color: #555;
+    color: var(--text-color-dark);
     text-decoration: line-through;
 }
 
@@ -108,36 +128,41 @@ ul li span {
 }
 
 ul li span:hover {
-    background-color: orangered;
+    background-color: var(--button-color);
 }
 
 footer {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    height: 5vh;
     text-align: center;
     background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 5px 0;
-    position: absolute;
-    /* margin-bottom: 0; */
+    color: var(--text-color);
+    padding: 5px;
+    position: relative; /* Ajuste a posição conforme necessário */
 }
 
 .footer-content {
-    margin-bottom: 3px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Espaço entre os elementos */
+    margin-bottom: 5px;
 }
 
 .footer-content a {
-    margin: 0 5px;
-    color: white;
-    font-size: 16px;
+    color: var(--text-color);
+    font-size: 14px; /* Tamanho de fonte menor para responsividade */
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color var(--transition-time);
+    padding: 5px; /* Padding para aumentar a área clicável */
 }
 
 .footer-content a:hover {
-    color: #4b0e74; /* Cor ao passar o mouse */
+    color: var(--hover-color);
 }
 
 footer p {
@@ -147,12 +172,11 @@ footer p {
 
 footer p a {
     text-decoration: none;
-    color: #fff;
+    color: var(--text-color);
 }
 
 /* Media queries para responsividade */
 @media (max-width: 600px) {
-    
     .app {
         padding: 30px 20px 50px;
         margin: 50px auto 20px;
@@ -179,5 +203,14 @@ footer p a {
 
     ul li span {
         font-size: 24px;
+    }
+
+    footer {
+        padding: 20px; /* Aumentar o padding para uma melhor usabilidade em dispositivos móveis */
+    }
+
+    .footer-content a {
+        font-size: 12px; /* Reduzir ainda mais o tamanho da fonte se necessário */
+        padding: 10px; /* Aumentar o padding para melhorar a área clicável em dispositivos móveis */
     }
 }
